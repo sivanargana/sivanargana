@@ -7,7 +7,7 @@ const Header = () => {
    <Logo />
      <nav className="ml-auto">
      
-      <ul className="flex gap-5">
+      <ul className="flex gap-14">
         <li>
           <TransitionLink href="/" label="Home" />
         </li>
