@@ -1,5 +1,6 @@
 import Banner from "./components/Banner";
 import SmoothScroller from "./components/SmoothScroller";
+import Works from "./components/Works";
 
  
 export default function Home() {
@@ -23,6 +24,7 @@ No nonsense, always on the cutting edge.</p>
     </div>
     </div>
   </section>  
+  <Works />
 </SmoothScroller>
   </>
   );
