@@ -33,7 +33,10 @@ const Works = () => {
     <div className="max-w-350 mx-auto">
         {
             works.map((item:any,i:any)=><div key={i}>
-                <div className="text-9xl font-medium">{item.name}</div>
+                <div className=" border-y -mt-px  py-10 flex items-center">
+                    <span className="text-7xl font-medium uppercase">{item.name}</span>
+                    <span className="text-base font-medium ml-auto">{item.type}</span>
+                </div>
 
             </div>)
         }
