@@ -44,7 +44,7 @@ useEffect(() => {
 }, []);
     return (
         <div className="w-full overflow-clip whitespace-nowrap">
-            <div className="flex w-max [&>span]:uppercase1 [&>span]:text-[10vw] [&>span]:font-light [&>span]:pr-[4vw]" ref={trackRef}>
+            <div className="flex w-max [&>span]:uppercase1 [&>span]:text-[8vw] [&>span]:font-light [&>span]:pr-[4vw]" ref={trackRef}>
                 <span>Siva Nargana</span>
                 <span>Frontend Developer</span>
             </div>
