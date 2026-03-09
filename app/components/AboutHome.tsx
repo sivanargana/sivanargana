@@ -1,20 +1,33 @@
- 
-const AboutHome = () => {
+type AboutHomeProps = {
+  summary: string;
+  availability: string;
+  keySkills: string[];
+  languages: string[];
+};
+
+const AboutHome = ({ summary, availability, keySkills, languages }: AboutHomeProps) => {
   return (
-  <section className="p-40">
-    <div className="max-w-350 mx-auto">
-    <div className="grid grid-cols-12">
-      <div className="col-span-10" data-speed="1.1">
-           <p className="text-[50px] font-light">Helping brands to stand out in the digital era.
-Together we will set the new status quo.
-No nonsense, always on the cutting edge.</p>
+  <section className="px-6 py-18 md:px-12 lg:px-16">
+    <div className="mx-auto max-w-7xl">
+    <div className="grid gap-12 lg:grid-cols-12">
+      <div className="lg:col-span-8" data-speed="1.08">
+           <p className="text-[clamp(1.6rem,3.3vw,2.5rem)] font-light leading-[1.15] text-zinc-100 whitespace-pre-line">{summary}</p>
       </div>
-      <div className="col-span-2" data-speed="1.1">
-        <div className="aspect-square rounded-full flex flex-col items-center justify-center bg-white text-black text-xl font-medium">
-          About Me
+      <div className="lg:col-span-4" data-speed="1.05">
+        <div className="aspect-square max-w-55 rounded-full border border-zinc-600 bg-zinc-100 text-black flex flex-col items-center justify-center text-xl font-medium">
+          {availability}
         </div>
       </div>
     </div>
+
+    <div className="mt-12 flex flex-wrap gap-3">
+      {keySkills.map((skill) => (
+        <span key={skill} className="rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-zinc-200 hover:text-white">
+          {skill}
+        </span>
+      ))}
+    </div>
+ 
     </div>
   </section>  
   )

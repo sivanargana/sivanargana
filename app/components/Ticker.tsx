@@ -1,56 +1,68 @@
 'use client';
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
-const Ticker = () => {
-    const trackRef: any = useRef(null);
- 
-useEffect(() => {
-  const track = trackRef.current;
-  if (!track) return;
 
-  // duplicate content only once
-  if (!track.dataset.cloned) {
-    track.innerHTML += track.innerHTML;
-    track.dataset.cloned = "true";
-  }
+type TickerProps = {
+  name: string;
+  title: string;
+};
 
-  let tween: gsap.core.Tween;
+const Ticker = ({ name, title }: TickerProps) => {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const groupRef = useRef<HTMLDivElement | null>(null);
 
-  const setupAnimation = () => {
-    // kill previous tween
-    tween?.kill();
+  useEffect(() => {
+    const track = trackRef.current;
+    const group = groupRef.current;
+    if (!track || !group) return;
 
-    // reset position
-    gsap.set(track, { x: 0 });
+    let tween: gsap.core.Tween | undefined;
 
-    const trackWidth = track.scrollWidth / 2;
+    const setupAnimation = () => {
+      tween?.kill();
 
-    tween = gsap.to(track, {
-      x: -trackWidth,
-      duration: 20,
-      ease: "none",
-      repeat: -1,
-    });
-  };
+      const singleGroupWidth = group.offsetWidth;
+      gsap.set(track, { x: 0 });
 
-  setupAnimation();
+      tween = gsap.to(track, {
+        x: -singleGroupWidth,
+        duration: 18,
+        ease: "none",
+        repeat: -1,
+      });
+    };
 
-  window.addEventListener("resize", setupAnimation);
+    setupAnimation();
+    window.addEventListener("resize", setupAnimation);
 
-  return () => {
-    window.removeEventListener("resize", setupAnimation);
-    tween?.kill();
-  };
-}, []);
-    return (
-        <div className="w-full overflow-clip whitespace-nowrap">
-            <div className="flex w-max [&>span]:uppercase1 [&>span]:text-[8vw] [&>span]:font-light [&>span]:pr-[4vw]" ref={trackRef}>
-                <span>Siva Nargana</span>
-                <span>Frontend Developer</span>
-            </div>
+    return () => {
+      window.removeEventListener("resize", setupAnimation);
+      tween?.kill();
+    };
+  }, []);
+
+  return (
+    <div className="w-full overflow-hidden whitespace-nowrap text-zinc-100">
+      <div className="flex w-max will-change-transform" ref={trackRef}>
+        <div
+          ref={groupRef}
+          className="flex shrink-0 [&>span]:pr-[4vw] [&>span]:text-[clamp(1.6rem,5.5vw,5.4rem)] [&>span]:font-light"
+        >
+          <span className="uppercase">{name}</span>
+          <span className="uppercase">{title}</span>
         </div>
-    )
-}
+        <div
+          aria-hidden="true"
+          className="flex shrink-0 [&>span]:pr-[4vw] [&>span]:text-[clamp(1.6rem,5.5vw,5.4rem)] [&>span]:font-light"
+        >
+          <span className="uppercase">{name}</span>
+          <span className="uppercase">{title}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Ticker
 
 

@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
- body{
-  @apply bg-black text-white; 
- }
+:root {
+    --page-bg: #09090b;
+    --text-main: #fafafa;
+    --text-soft: #a1a1aa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+}
+
+body {
+    @apply text-white;
+    margin: 0;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(190, 24, 93, 0.17), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(14, 165, 233, 0.14), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.16), transparent 35%),
+        var(--page-bg);
+    color: var(--text-main);
+}
+
+::selection {
+    background: #fafafa;
+    color: #09090b;
+}
