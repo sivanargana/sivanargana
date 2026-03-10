@@ -8,6 +8,8 @@ type BannerProps = {
 };
 
 export default function Banner({ name, title, specialization, totalExperience }: BannerProps) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
   return (
   <>
   <section className="relative min-h-screen overflow-hidden px-6 pt-34 pb-16 md:px-12 lg:px-16">
@@ -29,7 +31,7 @@ export default function Banner({ name, title, specialization, totalExperience }:
       </div>
       <div className="relative lg:col-span-5" data-speed="0.9">
         <div className="relative overflow-hidden rounded-4xl border border-zinc-700/60 bg-zinc-900/60 shadow-[0_35px_100px_rgba(0,0,0,0.45)]">
-          <img src="/avtar.png" alt={name} className="h-[520px] w-full object-contain object-bottom" />
+          <img src={`${basePath}/avtar.png`} alt={name} className="h-[520px] w-full object-contain object-bottom" />
         </div>
       </div>
     </div>
