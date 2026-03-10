@@ -12,7 +12,7 @@ export default function Banner({ name, title, specialization, totalExperience }:
 
   return (
   <>
-  <section className="relative min-h-screen overflow-hidden px-6 pt-34 pb-16 md:px-12 lg:px-16">
+  <section className="relative overflow-hidden px-6 pt-34 pb-16 md:min-h-screen md:px-12 lg:px-16">
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(244,114,182,0.2),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.2),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(245,158,11,0.25),transparent_40%)]" />
     <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
       <div className="lg:col-span-7" data-speed="1.08">
@@ -31,7 +31,7 @@ export default function Banner({ name, title, specialization, totalExperience }:
       </div>
       <div className="relative lg:col-span-5" data-speed="0.9">
         <div className="relative overflow-hidden rounded-4xl border border-zinc-700/60 bg-zinc-900/60 shadow-[0_35px_100px_rgba(0,0,0,0.45)]">
-          <img src={`${basePath}/avtar.png`} alt={name} className="h-[520px] w-full object-contain object-bottom" />
+          <img src={`${basePath}/avtar.png`} alt={name} className="h-130 w-full object-contain object-bottom" />
         </div>
       </div>
     </div>

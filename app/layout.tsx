@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -22,6 +22,11 @@ const data = profile as ProfileData;
 export const metadata: Metadata = {
   title: `${data.name} | ${data.title}`,
   description: data.profile_summary,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
