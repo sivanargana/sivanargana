@@ -16,7 +16,7 @@ export default function Banner({ name, title, specialization, totalExperience }:
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(244,114,182,0.2),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.2),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(245,158,11,0.25),transparent_40%)]" />
     <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
       <div className="lg:col-span-7" data-speed="1.08">
-        <p className="mb-6 text-sm uppercase tracking-[0.36em] text-zinc-300">{totalExperience} crafting product interfaces</p>
+        <p className="mb-6 text-sm uppercase tracking-[0.36em] text-zinc-300">{totalExperience} in UI</p>
         <h1 className="text-[clamp(2.6rem,7.2vw,6rem)] leading-[0.9] font-semibold uppercase text-zinc-50">
           {name}
         </h1>
