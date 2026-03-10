@@ -22,6 +22,11 @@ const data = profile as ProfileData;
 export const metadata: Metadata = {
   title: `${data.name} | ${data.title}`,
   description: data.profile_summary,
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export const viewport: Viewport = {
