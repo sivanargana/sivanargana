@@ -11,7 +11,7 @@ const AboutHome = ({ summary, availability, keySkills, languages }: AboutHomePro
     <div className="mx-auto max-w-7xl">
     <div className="grid gap-12 lg:grid-cols-12">
       <div className="lg:col-span-8" data-speed="1.08">
-           <p className="text-[clamp(1.6rem,3.3vw,2.5rem)] font-light leading-[1.15] text-zinc-100 whitespace-pre-line">{summary}</p>
+           <p className="text-[clamp(1.6rem,3.3vw,2rem)] font-light  text-zinc-100 whitespace-pre-line">{summary}</p>
       </div>
       <div className="lg:col-span-4" data-speed="1.05">
         <div className="aspect-square max-w-55 rounded-full border border-zinc-600 bg-zinc-100 text-black flex flex-col items-center justify-center text-xl font-medium">

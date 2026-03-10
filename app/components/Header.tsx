@@ -22,12 +22,11 @@ const Header = () => {
    isScrolled ? "  border-zinc-800/70 bg-black/65 py-4 backdrop-blur-md" : "py-8"
  }`}>
     <div className=" flex  items-center px-6 md:px-10">
-      <Logo />
+      <TransitionLink href="/" ariaLabel="Home" className="p-0 text-left">
+        <Logo />
+      </TransitionLink>
       <nav className="ml-auto">
         <ul className="flex gap-8 md:gap-12">
-          <li>
-            <TransitionLink href="/" label="Home" />
-          </li>
           <li>
             <TransitionLink href="/work" label="Work" />
           </li>

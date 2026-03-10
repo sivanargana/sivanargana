@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -7,8 +7,8 @@ import SmoothScroller from "./components/SmoothScroller";
 import profile from "@/data/sivanargana.json";
 import type { ProfileData } from "@/types/profile";
  
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased min-h-screen flex flex-col`}>
+      <body className={`${spaceGrotesk.className} antialiased min-h-screen flex flex-col`}>
         <Header />
         <SmoothScroller>
           <main className="flex-1">{children}</main>

@@ -1,16 +1,21 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation"
 import { animatePageOut } from "@/utils/animations"
+import { ReactNode } from "react"
 
 interface Props {
   href: string
-  label: string
+  label?: string
+  ariaLabel?: string
+  children?: ReactNode
+  className?: string
 }
 
-const TransitionLink = ({ href, label }: Props) => {
+const TransitionLink = ({ href, label, ariaLabel, children, className = "" }: Props) => {
   const router = useRouter()
   const pathname = usePathname()
   const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href)
+  const hasCustomContent = Boolean(children)
 
   const handleClick = () => {
     if (!isActive) {
@@ -20,12 +25,16 @@ const TransitionLink = ({ href, label }: Props) => {
 
   return (
     <button
-      className={`inline-flex text-base md:text-xl group cursor-pointer p-2 ${isActive ? "text-white" : "text-zinc-300"}`}
+      type="button"
+      className={`inline-flex group cursor-pointer p-2 ${hasCustomContent ? "" : "text-base md:text-xl"} ${isActive ? "text-white" : "text-zinc-300"} ${className}`}
       onClick={handleClick}
+      aria-label={ariaLabel ?? label}
       aria-current={isActive ? "page" : undefined}
     >
-      {isActive ? (
-        <span className="relative inline-flex after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-white">
+      {hasCustomContent ? (
+        <span className="inline-flex items-center">{children}</span>
+      ) : isActive ? (
+        <span className="relative inline-flex after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-white">
           {label}
         </span>
       ) : (
