@@ -18,14 +18,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const data = profile as ProfileData;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const iconPath = `${basePath}/icon.svg`;
 
 export const metadata: Metadata = {
   title: `${data.name} | ${data.title}`,
   description: data.profile_summary,
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: iconPath,
+    shortcut: iconPath,
+    apple: iconPath,
   },
 };
 
