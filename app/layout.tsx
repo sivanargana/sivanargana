@@ -26,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased`} > 
+      <body className={`${outfit.className} antialiased min-h-screen flex flex-col`}>
         <Header />
         <SmoothScroller>
-          {children}
+          <main className="flex-1">{children}</main>
           <Footer />
         </SmoothScroller>
       </body>

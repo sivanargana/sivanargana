@@ -26,7 +26,7 @@ export const animatePageIn = () => {
       yPercent: 0,
     }).to(banners, {
       yPercent: 100,
-      duration: 0.7,
+      duration: 0.3,
       stagger: 0.2,
       ease: "power2.inOut",
     }).set(banners, {
@@ -58,7 +58,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       yPercent: -100,
     }).to(banners, {
       yPercent: 0,
-      duration: 0.7,
+      duration: 0.3,
       stagger: 0.2,
       ease: "power2.inOut",
       onComplete: () => {

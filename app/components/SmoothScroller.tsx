@@ -42,8 +42,8 @@ export default function SmoothScroller({
   }, [pathname]);
 
   return (
-    <div ref={wrapperRef} >
-      <div ref={contentRef}>
+    <div ref={wrapperRef} className="flex-1">
+      <div ref={contentRef} className="min-h-full flex flex-col">
         {children}
       </div>
     </div>
